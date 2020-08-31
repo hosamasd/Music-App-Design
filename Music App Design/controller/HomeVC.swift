@@ -31,7 +31,7 @@ class HomeVC: UIViewController {
            cv.backgroundColor = .clear
            cv.setCollectionViewLayout(layout, animated: false)
            cv.register(PopularPlaylistCollectionViewCell.self, forCellWithReuseIdentifier: "PopularPlaylistCollectionViewCell")
-//           cv.register(NewReleaseCollectionViewCell.self, forCellWithReuseIdentifier: "NewReleaseCollectionViewCell")
+           cv.register(NewReleaseCollectionViewCell.self, forCellWithReuseIdentifier: "NewReleaseCollectionViewCell")
            cv.delegate = self
            cv.dataSource = self
            return cv
@@ -104,7 +104,7 @@ extension HomeVC:UICollectionViewDelegate, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -113,8 +113,8 @@ extension HomeVC:UICollectionViewDelegate, UICollectionViewDataSource, UICollect
             cell.delegate = self
             return cell
         }
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewReleaseCollectionViewCell", for: indexPath) as! NewReleaseCollectionViewCell
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewReleaseCollectionViewCell", for: indexPath) as! NewReleaseCollectionViewCell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
